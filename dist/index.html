@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo</title>
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body class="bg-[#0d0d0d] font-mono">
+    <div id="parent" class="container py-10">
+      <header class="h-10">
+        <nav class="flex justify-between">
+          <h1 class="text-3xl font-bold text-[#7b7264]">
+            To<span class="text-[#ff5631]">do</span>
+          </h1>
+          <img
+            id="close"
+            src="./assets/close-icon.svg"
+            alt=""
+            class="inline cursor-pointer"
+          />
+        </nav>
+      </header>
+
+      <div id="body" class="grid items-center justify-center">
+        <div
+          id="totalTodo"
+          class="flex w-fit justify-evenly gap-10 items-center border border-[#7b7264] rounded-2xl py-5 px-12 text-center text-[#d7c7ab]"
+        >
+          <div>
+            <h1 class="text-5xl font-bold">Todo Done</h1>
+            <p id="txtChange" class="text-3xl font-bold">keep it up</p>
+          </div>
+          <div
+            id="circel"
+            class="p-20 flex items-center justify-center w-32 h-32 text-3xl font-extrabold text-black bg-[#ff5631] rounded-full"
+          >
+            <span id="totalTodoCount"></span>
+          </div>
+        </div>
+        <div
+          id="todoInput"
+          class="flex items-center justify-center gap-5 py-10"
+        >
+          <input
+            id="todoIn"
+            type="text"
+            placeholder="write your next task"
+            class="px-5 py-2 rounded-xl bg-[#1e1e1e] text-[#d7c7ab]"
+          />
+
+          <div
+            id="submitBtn"
+            class="bg-[#ff5631] p-5 flex justify-center items-center cursor-pointer text-2xl font-extrabold w-10 h-10 rounded-full"
+          >
+            +
+          </div>
+        </div>
+        <div id="ulWrapper" class="overflow-y-scroll h-[250px] px-2">
+          <ul id="todoList" class="space-y-2 text-[#ff5631] text-3xl"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
