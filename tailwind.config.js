@@ -3,6 +3,9 @@ module.exports = {
   content: ["./dist/*.{html,js}"],
   theme: {
     extend: {
+      fontFamily: {
+        ubuntu: ["ubuntu", "ui-monospace"],
+      },
       screens: {
         xxs: "380px",
         xs: "576px",
