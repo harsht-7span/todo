@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const ul = document.getElementById("todoList");
     const todo = document.createElement("li");
     const text = document.createElement("span");
+    text.classList.add("spanText");
     todo.appendChild(text);
     todo.classList.add("list");
 
@@ -106,20 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
     todo.id = id;
 
     //only for custom check
-    const checkDiv = document.createElement("div");
-    const checkLabel = document.createElement("label");
-    const labelSpan = document.createElement("span");
+
     const check = document.createElement("input");
 
     check.type = "checkbox";
     check.checked = isChecked;
-
-    checkDiv.classList.add("checkbox-wrapper-24");
-    checkLabel.setAttribute("for", "check-24");
-
-    checkLabel.appendChild(labelSpan);
-    checkDiv.appendChild(check);
-    checkDiv.appendChild(checkLabel);
 
     check.addEventListener("change", (e) => {
       const index = todoList.findIndex((item) => item.id === id);
@@ -130,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       saveData();
     });
 
-    const { updateBtn, delBtn, upDel } = buttons(id, task);
+    const { upDel } = buttons(id, task);
 
     text.textContent = task;
     // todo.appendChild(updateBtn);
@@ -167,6 +159,51 @@ document.addEventListener("DOMContentLoaded", function () {
         addTask(todo.task, todo.checked);
       });
     }
+  }
+
+  // Filter buttons
+  const filterAllBtn = document.getElementById("filterAll");
+  const filterCompletedBtn = document.getElementById("filterCompleted");
+  const filterRemainingBtn = document.getElementById("filterRemaining");
+
+  filterAllBtn.addEventListener("click", () => {
+    filterTasks("all");
+  });
+
+  filterCompletedBtn.addEventListener("click", () => {
+    filterTasks("completed");
+  });
+
+  filterRemainingBtn.addEventListener("click", () => {
+    filterTasks("remaining");
+  });
+
+  function filterTasks(filterType) {
+    const todoItems = document.querySelectorAll(".list");
+    todoItems.forEach((item) => {
+      switch (filterType) {
+        case "all":
+          item.style.display = "flex";
+          break;
+        case "completed":
+          if (item.querySelector("input[type=checkbox]").checked) {
+            item.style.display = "flex";
+          } else {
+            item.style.display = "none";
+          }
+          break;
+        case "remaining":
+          if (!item.querySelector("input[type=checkbox]").checked) {
+            item.style.display = "flex";
+          } else {
+            item.style.display = "none";
+          }
+          break;
+        default:
+          item.style.display = "flex";
+          break;
+      }
+    });
   }
 
   loadData();

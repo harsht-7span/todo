@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
-/*
-! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
-*/
+/* Tailwind CSS */
+
+/* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -584,6 +584,10 @@ video {
   }
 }
 
+.relative{
+  position: relative;
+}
+
 .inline{
   display: inline;
 }
@@ -604,8 +608,12 @@ video {
   height: 8rem;
 }
 
-.h-\[250px\]{
-  height: 250px;
+.h-\[500px\]{
+  height: 500px;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .w-10{
@@ -667,6 +675,10 @@ video {
   border-radius: 9999px;
 }
 
+.rounded-lg{
+  border-radius: 0.5rem;
+}
+
 .rounded-xl{
   border-radius: 0.75rem;
 }
@@ -713,6 +725,11 @@ video {
   padding-right: 0.5rem;
 }
 
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .px-5{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -731,6 +748,10 @@ video {
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.pt-5{
+  padding-top: 1.25rem;
 }
 
 .text-center{
@@ -793,29 +814,35 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-/* #ulWrapper::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0);
-} */
+.transition-all{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 
-#ulWrapper::-webkit-scrollbar {
+/* Scrollbar */
+
+::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
   background-color: rgba(228, 228, 228, 0);
 }
 
-#ulWrapper::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: rgb(255, 86, 49, 0.5);
+  background-color: rgba(255, 86, 49, 0.5);
 }
 
 .icons {
   display: flex;
+  padding-left: 20px;
 }
 
 .list {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  max-width: 500px;
+  min-width: 100px;
   justify-content: space-between;
   border: 1px solid #7b7264;
   background-color: #1e1e1e;
@@ -824,20 +851,15 @@ video {
   font-weight: bold;
 }
 
+.spanText {
+  margin-right: auto;
+  overflow-x: auto;
+}
+
 .check {
   color: yellow;
   text-decoration: line-through;
 }
-
-.checkMark {
-}
-
-/* <div class="checkbox-wrapper-24">
-  <input type="checkbox" id="check-24" name="check" value="" />
-  <label for="check-24">
-    <span><!-- This span is needed to create the "checkbox" element --></span>Checkbox
-  </label>
-</div> */
 
 .checkbox-wrapper-24 .checkbox {
   display: table-cell;
@@ -943,4 +965,15 @@ video {
   width: 5px;
   background: #fff;
   transition: width 150ms ease 100ms;
+}
+
+.hover\:bg-\[\#ff5631\]:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 86 49 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 992px){
+  .md\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
