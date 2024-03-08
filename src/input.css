@@ -17,9 +17,11 @@
   background-color: rgba(255, 86, 49, 0.5);
 }
 
-.icons {
+.icon {
   display: flex;
   padding-left: 20px;
+  padding-right: 10px;
+  width: auto;
 }
 
 .list {
@@ -36,6 +38,7 @@
 }
 
 .spanText {
+  max-width: 70%;
   margin-right: auto;
   overflow-x: auto;
 }

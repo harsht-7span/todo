@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const todoList = [];
 
   close.addEventListener("click", () => {
+    window.open("", "_self", "");
     window.close();
   });
 
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const update = document.createElement("img");
     update.src = "./assets/update.svg";
     update.alt = "update";
+    update.classList.add("icon");
 
     const updateBtn = document.createElement("button");
     updateBtn.classList.add("update");
