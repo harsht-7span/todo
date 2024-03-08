@@ -5,8 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const todoList = [];
 
   close.addEventListener("click", () => {
-    window.open("", "_self", "");
-    window.close();
+    let new_window = open(location, "_self");
+
+    // Close this window
+    new_window.close();
+
+    return false;
   });
 
   input.addEventListener("keypress", function (event) {
